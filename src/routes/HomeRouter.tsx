@@ -7,7 +7,11 @@ export const HomeRouter = () =>
         <>
            <HomeLayout>
                 <Routes>
-                    <Route path="/" element={<></>}/>
+                    <Route path="/home" element={<></>}/>
+                    <Route path="/features" element={<></>}/>
+                    <Route path="/gallery" element={<></>}/>
+                    <Route path="/contact" element={<></>}/>
+                    <Route path="/download" element={<></>}/>
                 </Routes>
             </HomeLayout> 
         </>

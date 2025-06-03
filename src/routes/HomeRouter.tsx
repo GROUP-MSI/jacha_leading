@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { HomeLayout } from "../components/HomeLayout";
 import Gallery from "../views/GalleryView";
+import { HomeView } from "../views/HomeVIew";
 
 export const HomeRouter = () => 
 {
@@ -8,7 +9,7 @@ export const HomeRouter = () =>
         <>
            <HomeLayout>
                 <Routes>
-                    <Route path="/home" element={<></>}/>
+                    <Route path="/home" element={<HomeView />}/>
                     <Route path="/features" element={<></>}/>
                     <Route path="/gallery" element={<Gallery />}/>
                     <Route path="/contact" element={<></>}/>

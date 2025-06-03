@@ -1,5 +1,8 @@
 export const HomeView = () =>
 {
-    return (<>
-    </>);
+    return (
+        <>
+            
+        </>
+    );
 }

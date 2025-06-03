@@ -1,3 +1,7 @@
 export const HomeView = () => {
-  return <></>;
+  return (
+    <>
+      <h1>hola a todos</h1>
+    </>
+  );
 };

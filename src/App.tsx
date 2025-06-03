@@ -1,10 +1,17 @@
-const App = () => {
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { HomeRouter } from "./routes/HomeRouter";
+import { ToastContainer } from "react-toastify";
+
+function App() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <h1 className="uppercase">hola a todos</h1>
-      <h2 className="uppercase">esto es de jesus</h2>
-    </div>
+    <>
+      <Routes>
+        <Route path="*" element={<HomeRouter />} />
+      </Routes>
+      <ToastContainer autoClose={1300} className="custom-toast-container" />
+    </>
   );
-};
+}
 
 export default App;

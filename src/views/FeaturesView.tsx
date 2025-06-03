@@ -1,6 +1,5 @@
 import React from 'react';
-import { FaGamepad, FaTrophy, FaUsers, FaCog, FaChartLine } from 'react-icons/fa';
-import './Features.css'; // Asegúrate de crear este archivo CSS
+import { FaChartLine, FaCog, FaGamepad, FaTrophy, FaUsers } from 'react-icons/fa';
 
 interface FeatureItem {
   icon: React.ReactNode;

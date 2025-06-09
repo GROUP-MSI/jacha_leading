@@ -5,41 +5,39 @@ import { Link, useLocation } from "react-router-dom"
 
 const navItems = [
   { href: "/home", label: "Home" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/contact", label: "Contact" },
-  { href: "/download", label: "Download" },
-  { href: "/features", label: "Features" },
+  { href: "/features", label: "Caracteristicas" },
+  { href: "/gallery", label: "Galeria" },
+  { href: "/contact", label: "Contactanos" },
+  { href: "/download", label: "Descargas" },
 ]
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const pathname = useLocation();
+  const pathname = useLocation()
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-red-800/20 bg-gradient-to-r from-red-900/95 via-yellow-900/95 to-green-900/95 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Link to="/home" className="flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
-                <svg className="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.859 0-7 3.141-7 7v1h1 1 14z"/>
-                </svg>
+        <div className="flex h-20 items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Link to="/home" className="flex items-center space-x-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-yellow-500 shadow-lg shadow-yellow-500/30">
+                <span className="text-xl font-bold text-red-900">J</span>
               </div>
-              <span className="hidden font-bold text-gray-900 sm:inline-block">GameZone</span>
+              <span className="hidden font-bold text-2xl text-yellow-400 sm:inline-block">J'ACHA</span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:gap-6">
+          <nav className="hidden md:flex md:gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  pathname.pathname === item.href 
-                    ? "text-blue-600" 
-                    : "text-gray-600"
+                className={`text-sm font-bold uppercase tracking-wider transition-all hover:text-yellow-400 hover:scale-105 ${
+                  pathname.pathname === item.href
+                    ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                    : "text-gray-200"
                 }`}
               >
                 {item.label}
@@ -47,9 +45,19 @@ export function Header() {
             ))}
           </nav>
 
+          {/* Play Now Button (Desktop) */}
+          <div className="hidden md:block">
+            <Link
+              to="/download"
+              className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-5 py-2 rounded-lg text-sm font-bold transform hover:scale-105 transition-all duration-300 shadow-lg"
+            >
+              ¡JUGAR AHORA!
+            </Link>
+          </div>
+
           {/* Mobile Menu Button */}
           <button
-            className="inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 md:hidden"
+            className="inline-flex items-center justify-center rounded-md p-2 text-yellow-400 hover:bg-red-800/40 hover:text-yellow-300 md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -68,21 +76,26 @@ export function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden">
-            <div className="flex flex-col space-y-3 pb-3 pt-2">
+            <div className="flex flex-col space-y-4 pb-5 pt-3">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    pathname.pathname === item.href 
-                      ? "text-blue-600" 
-                      : "text-gray-600"
+                  className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-yellow-400 ${
+                    pathname.pathname === item.href ? "text-yellow-400" : "text-gray-200"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
               ))}
+              <Link
+                to="/download"
+                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-4 py-2 rounded-lg text-sm font-bold transform hover:scale-105 transition-all duration-300 shadow-lg w-full text-center mt-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                ¡JUGAR AHORA!
+              </Link>
             </div>
           </div>
         )}
